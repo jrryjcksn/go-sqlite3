@@ -1031,7 +1031,7 @@ func TestTimezoneConversion(t *testing.T) {
 }
 
 // TODO: Execer & Queryer currently disabled
-// https://github.com/mattn/go-sqlite3/issues/82
+// https://github.com/jrryjcksn/go-sqlite3/issues/82
 func TestExecer(t *testing.T) {
 	tempFilename := TempFilename(t)
 	defer os.Remove(tempFilename)
@@ -1062,18 +1062,18 @@ func TestQueryer(t *testing.T) {
 	defer db.Close()
 
 	_, err = db.Exec(`
-	create table foo (id integer);
-	`)
+    create table foo (id integer);
+    `)
 	if err != nil {
 		t.Error("Failed to call db.Query:", err)
 	}
 
 	rows, err := db.Query(`
-	insert into foo(id) values(?);
-	insert into foo(id) values(?);
-	insert into foo(id) values(?);
-	select id from foo order by id;
-	`, 3, 2, 1)
+    insert into foo(id) values(?);
+    insert into foo(id) values(?);
+    insert into foo(id) values(?);
+    select id from foo order by id;
+    `, 3, 2, 1)
 	if err != nil {
 		t.Error("Failed to call db.Query:", err)
 	}
@@ -1210,8 +1210,8 @@ func TestStringContainingZero(t *testing.T) {
 	defer db.Close()
 
 	_, err = db.Exec(`
-	create table foo (id integer, name, extra text);
-	`)
+    create table foo (id integer, name, extra text);
+    `)
 	if err != nil {
 		t.Error("Failed to call db.Query:", err)
 	}

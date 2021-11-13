@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/jrryjcksn/go-sqlite3"
 	"log"
 	"os"
 )
@@ -18,9 +18,9 @@ func main() {
 	defer db.Close()
 
 	sqlStmt := `
-	create table foo (id integer not null primary key, name text);
-	delete from foo;
-	`
+    create table foo (id integer not null primary key, name text);
+    delete from foo;
+    `
 	_, err = db.Exec(sqlStmt)
 	if err != nil {
 		log.Printf("%q: %s\n", err, sqlStmt)

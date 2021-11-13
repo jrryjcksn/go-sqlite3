@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/mattn/go-sqlite3"
+	"github.com/jrryjcksn/go-sqlite3"
 )
 
 type githubRepo struct {
@@ -21,12 +21,12 @@ type githubModule struct {
 
 func (m *githubModule) Create(c *sqlite3.SQLiteConn, args []string) (sqlite3.VTab, error) {
 	err := c.DeclareVTab(fmt.Sprintf(`
-		CREATE TABLE %s (
-			id INT,
-			full_name TEXT,
-			description TEXT,
-			html_url TEXT
-		)`, args[0]))
+        CREATE TABLE %s (
+            id INT,
+            full_name TEXT,
+            description TEXT,
+            html_url TEXT
+        )`, args[0]))
 	if err != nil {
 		return nil, err
 	}

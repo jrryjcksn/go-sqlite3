@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mattn/go-sqlite3"
+	"github.com/jrryjcksn/go-sqlite3"
 )
 
 func createBulkInsertQuery(n int, start int) (query string, args []interface{}) {
@@ -58,9 +58,9 @@ func main() {
 	defer db.Close()
 
 	sqlStmt := `
-	create table foo (id integer not null primary key, name text);
-	delete from foo;
-	`
+    create table foo (id integer not null primary key, name text);
+    delete from foo;
+    `
 	_, err = db.Exec(sqlStmt)
 	if err != nil {
 		log.Printf("%q: %s\n", err, sqlStmt)
